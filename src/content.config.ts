@@ -36,6 +36,8 @@ const machines = defineCollection({
     cons: z.array(z.string()),
     bestFor: z.string(),
     nearestCompetitor: z.string().optional(),
+    image: z.string().optional(),
+    tagline: z.string().optional(),
   }),
 });
 

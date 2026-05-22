@@ -1,0 +1,116 @@
+---
+interface Props {
+  defaultTab?: string;
+}
+
+const { defaultTab = 'overview' } = Astro.props;
+---
+
+<div class="tabs-wrapper">
+  <div class="tabs-nav">
+    <button class="tab-btn active" data-tab="overview">Overview</button>
+    <button class="tab-btn" data-tab="rankings">Full Rankings</button>
+    <button class="tab-btn" data-tab="comparison">Comparison</button>
+  </div>
+
+  <div class="tabs-content">
+    <div id="overview" class="tab-pane active" data-tab="overview">
+      <slot name="overview" />
+    </div>
+    <div id="rankings" class="tab-pane" data-tab="rankings">
+      <slot name="rankings" />
+    </div>
+    <div id="comparison" class="tab-pane" data-tab="comparison">
+      <slot name="comparison" />
+    </div>
+  </div>
+</div>
+
+<style>
+  .tabs-wrapper {
+    margin-bottom: 3rem;
+  }
+
+  .tabs-nav {
+    display: flex;
+    gap: 1rem;
+    border-bottom: 2px solid #e5e7eb;
+    margin-bottom: 2rem;
+  }
+
+  .tab-btn {
+    background: none;
+    border: none;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #6b7280;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.2s;
+  }
+
+  .tab-btn:hover {
+    color: #0f172a;
+  }
+
+  .tab-btn.active {
+    color: #166534;
+  }
+
+  .tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #166534;
+  }
+
+  .tabs-content {
+    width: 100%;
+  }
+
+  .tab-pane {
+    display: none;
+  }
+
+  .tab-pane.active {
+    display: block;
+    animation: fadeIn 0.2s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tabName = btn.getAttribute('data-tab');
+
+        // Remove active class from all buttons and panes
+        tabBtns.forEach(b => b.classList.remove('active'));
+        tabPanes.forEach(pane => pane.classList.remove('active'));
+
+        // Add active class to clicked button and corresponding pane
+        btn.classList.add('active');
+        const activePane = document.querySelector(`#${tabName}`);
+        if (activePane) {
+          activePane.classList.add('active');
+        }
+      });
+    });
+  });
+</script>

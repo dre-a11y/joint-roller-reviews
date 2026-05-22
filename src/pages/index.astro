@@ -4,6 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ComparisonTable from '../components/ComparisonTable.astro';
 import MachineCard from '../components/MachineCard.astro';
 import FeaturedMachineCard from '../components/FeaturedMachineCard.astro';
+import TabsContainer from '../components/TabsContainer.astro';
 
 const allMachines = await getCollection('machines');
 const sorted = allMachines.sort((a, b) => (a.data.rank ?? 99) - (b.data.rank ?? 99));
@@ -43,51 +44,78 @@ const tableData = sorted.map(m => ({
   </div>
 
   <main class="container">
-    <section class="section">
-      <h2>Quick Comparison</h2>
-      <ComparisonTable machines={tableData} />
-    </section>
+    <TabsContainer>
+      <div slot="overview">
+        {sorted[0] && (
+          <FeaturedMachineCard
+            title={sorted[0].data.title}
+            slug={sorted[0].id}
+            manufacturer={sorted[0].data.manufacturer}
+            priceLabel={sorted[0].data.priceLabel}
+            throughputPerHour={sorted[0].data.throughputPerHour}
+            differentiator={sorted[0].data.differentiator}
+            overallScore={sorted[0].data.overallScore}
+            badge={sorted[0].data.badge}
+            pros={sorted[0].data.pros}
+            image={sorted[0].data.image}
+            tagline={sorted[0].data.tagline}
+          />
+        )}
 
-    {sorted[0] && (
-      <FeaturedMachineCard
-        title={sorted[0].data.title}
-        slug={sorted[0].id}
-        manufacturer={sorted[0].data.manufacturer}
-        priceLabel={sorted[0].data.priceLabel}
-        throughputPerHour={sorted[0].data.throughputPerHour}
-        differentiator={sorted[0].data.differentiator}
-        overallScore={sorted[0].data.overallScore}
-        badge={sorted[0].data.badge}
-        pros={sorted[0].data.pros}
-        image={sorted[0].data.image}
-        tagline={sorted[0].data.tagline}
-      />
-    )}
+        <section class="section">
+          <h2>Full Rankings</h2>
+          {sorted.map(m => (
+            <MachineCard
+              rank={m.data.rank ?? 0}
+              title={m.data.title}
+              slug={m.id}
+              priceLabel={m.data.priceLabel}
+              throughputPerHour={m.data.throughputPerHour}
+              differentiator={m.data.differentiator}
+              overallScore={m.data.overallScore ?? 0}
+              badge={m.data.badge}
+              pros={m.data.pros}
+              cons={m.data.cons}
+              bestFor={m.data.bestFor}
+            />
+          ))}
+        </section>
 
-    <section class="section">
-      <h2>Full Rankings</h2>
-      {sorted.map(m => (
-        <MachineCard
-          rank={m.data.rank ?? 0}
-          title={m.data.title}
-          slug={m.id}
-          priceLabel={m.data.priceLabel}
-          throughputPerHour={m.data.throughputPerHour}
-          differentiator={m.data.differentiator}
-          overallScore={m.data.overallScore ?? 0}
-          badge={m.data.badge}
-          pros={m.data.pros}
-          cons={m.data.cons}
-          bestFor={m.data.bestFor}
-        />
-      ))}
-    </section>
+        <section class="buyers-cta">
+          <h2>Not sure which tier fits your operation?</h2>
+          <p>The buyer's guide walks through the decision by daily volume, format requirements, and total cost of ownership.</p>
+          <a href="/how-to-choose-a-pre-roll-machine">Read the Buyer's Guide →</a>
+        </section>
+      </div>
 
-    <section class="buyers-cta">
-      <h2>Not sure which tier fits your operation?</h2>
-      <p>The buyer's guide walks through the decision by daily volume, format requirements, and total cost of ownership.</p>
-      <a href="/how-to-choose-a-pre-roll-machine">Read the Buyer's Guide →</a>
-    </section>
+      <div slot="rankings">
+        <section class="section">
+          <h2>Full Rankings</h2>
+          {sorted.map(m => (
+            <MachineCard
+              rank={m.data.rank ?? 0}
+              title={m.data.title}
+              slug={m.id}
+              priceLabel={m.data.priceLabel}
+              throughputPerHour={m.data.throughputPerHour}
+              differentiator={m.data.differentiator}
+              overallScore={m.data.overallScore ?? 0}
+              badge={m.data.badge}
+              pros={m.data.pros}
+              cons={m.data.cons}
+              bestFor={m.data.bestFor}
+            />
+          ))}
+        </section>
+      </div>
+
+      <div slot="comparison">
+        <section class="section">
+          <h2>Quick Comparison</h2>
+          <ComparisonTable machines={tableData} />
+        </section>
+      </div>
+    </TabsContainer>
   </main>
 </BaseLayout>
 
