@@ -1,0 +1,230 @@
+---
+import CategoryBadge from './CategoryBadge.astro';
+
+interface Props {
+  title: string;
+  slug: string;
+  manufacturer: string;
+  priceLabel: string;
+  throughputPerHour: number;
+  differentiator: string;
+  overallScore: number;
+  badge?: string;
+  pros: string[];
+  image?: string;
+  tagline: string;
+}
+
+const { title, slug, manufacturer, priceLabel, throughputPerHour, differentiator, overallScore, badge, pros, image, tagline } = Astro.props;
+---
+
+<section class="featured-hero">
+  <div class="featured-container">
+    <div class="featured-content">
+      <div class="featured-label">🏆 #1 Overall</div>
+      <h1>{title}</h1>
+      {badge && <CategoryBadge badge={badge} />}
+
+      <p class="tagline">{tagline}</p>
+
+      <p class="differentiator">{differentiator}</p>
+
+      <div class="specs-grid">
+        <div class="spec">
+          <span class="spec-label">Throughput</span>
+          <span class="spec-value">~{throughputPerHour.toLocaleString()}/hr</span>
+        </div>
+        <div class="spec">
+          <span class="spec-label">Price</span>
+          <span class="spec-value">{priceLabel}</span>
+        </div>
+        <div class="spec">
+          <span class="spec-label">Overall Score</span>
+          <span class="spec-value score">{overallScore.toFixed(1)}/10</span>
+        </div>
+      </div>
+
+      <div class="key-strengths">
+        <h3>Key Strengths</h3>
+        <ul>
+          {pros.slice(0, 3).map(p => <li>{p}</li>)}
+        </ul>
+      </div>
+
+      <a href={`/reviews/${slug}`} class="cta-button">Full Review & Analysis →</a>
+    </div>
+
+    {image && (
+      <div class="featured-image">
+        <img src={image} alt={`${title} pre-roll machine`} />
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .featured-hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #fff;
+    padding: 3.5rem 0;
+    margin-bottom: 3.5rem;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .featured-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .featured-container {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding: 0 1.5rem;
+    }
+  }
+
+  .featured-label {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #94a3b8;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .featured-content h1 {
+    font-size: 2.5rem;
+    margin: 0 0 0.75rem 0;
+    line-height: 1.2;
+  }
+
+  .featured-content > :global(div) {
+    margin-bottom: 1rem;
+  }
+
+  .tagline {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #cbd5e1;
+    margin: 1rem 0;
+  }
+
+  .differentiator {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #cbd5e1;
+    margin-bottom: 1.5rem;
+  }
+
+  .specs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+    padding: 1.5rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  @media (max-width: 640px) {
+    .specs-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+
+  .spec {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .spec-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #94a3b8;
+    margin-bottom: 0.4rem;
+  }
+
+  .spec-value {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .spec-value.score {
+    color: #4ade80;
+  }
+
+  .key-strengths {
+    margin: 1.5rem 0;
+  }
+
+  .key-strengths h3 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #94a3b8;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+  }
+
+  .key-strengths ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .key-strengths li {
+    padding: 0.4rem 0;
+    color: #cbd5e1;
+    font-size: 0.95rem;
+  }
+
+  .key-strengths li::before {
+    content: '✓ ';
+    color: #4ade80;
+    font-weight: 700;
+    margin-right: 0.5rem;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background: #166534;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    transition: background 0.2s;
+    text-decoration: none;
+  }
+
+  .cta-button:hover {
+    background: #15803d;
+  }
+
+  .featured-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 2rem;
+    min-height: 400px;
+  }
+
+  .featured-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+  }
+</style>

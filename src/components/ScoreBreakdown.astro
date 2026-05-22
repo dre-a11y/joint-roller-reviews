@@ -1,0 +1,95 @@
+---
+interface Scores {
+  throughput: number;
+  consistency: number;
+  formatFlexibility: number;
+  totalCostOfOwnership: number;
+  easeOfOperation: number;
+  uptimeAndMaintenance: number;
+  supportAndWarranty: number;
+}
+
+interface Props {
+  scores: Scores;
+  overallScore: number;
+}
+
+const { scores, overallScore } = Astro.props;
+
+const criteria = [
+  { label: 'Consistency & Accuracy', weight: 25, value: scores.consistency },
+  { label: 'Throughput',             weight: 20, value: scores.throughput },
+  { label: 'Total Cost of Ownership',weight: 20, value: scores.totalCostOfOwnership },
+  { label: 'Ease of Operation',      weight: 10, value: scores.easeOfOperation },
+  { label: 'Uptime & Maintenance',   weight: 10, value: scores.uptimeAndMaintenance },
+  { label: 'Format Flexibility',     weight: 10, value: scores.formatFlexibility },
+  { label: 'Support & Warranty',     weight: 5,  value: scores.supportAndWarranty },
+];
+---
+
+<div class="score-breakdown">
+  <div class="overall">
+    <span class="overall-label">Overall Score</span>
+    <span class="overall-value">{overallScore.toFixed(1)}<span class="out-of">/10</span></span>
+  </div>
+  <div class="criteria">
+    {criteria.map(c => (
+      <div class="criterion">
+        <div class="criterion-header">
+          <span class="criterion-label">{c.label}</span>
+          <span class="criterion-meta">weight: {c.weight}% · {c.value}/10</span>
+        </div>
+        <div class="bar-track">
+          <div class="bar-fill" style={`width:${c.value * 10}%`}></div>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .score-breakdown {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+
+  .overall {
+    background: #0f172a;
+    color: #fff;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .overall-label { font-weight: 600; font-size: 0.9rem; }
+  .overall-value { font-size: 2.25rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .out-of { font-size: 1rem; opacity: 0.5; }
+
+  .criteria { padding: 1.25rem 1.5rem; display: flex; flex-direction: column; gap: 1rem; }
+
+  .criterion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.3rem;
+  }
+
+  .criterion-label { font-size: 0.88rem; font-weight: 500; }
+  .criterion-meta  { font-size: 0.75rem; color: #6b7280; }
+
+  .bar-track {
+    height: 8px;
+    background: #f1f5f9;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    height: 100%;
+    background: linear-gradient(to right, #86efac, #166534);
+    border-radius: 4px;
+  }
+</style>

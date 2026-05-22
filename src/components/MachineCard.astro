@@ -1,0 +1,145 @@
+---
+import CategoryBadge from './CategoryBadge.astro';
+
+interface Props {
+  rank: number;
+  title: string;
+  slug: string;
+  priceLabel: string;
+  throughputPerHour: number;
+  differentiator: string;
+  overallScore: number;
+  badge?: string;
+  pros: string[];
+  cons: string[];
+  bestFor: string;
+}
+
+const { rank, title, slug, priceLabel, throughputPerHour, differentiator, overallScore, badge, pros, cons, bestFor } = Astro.props;
+---
+
+<div class="machine-card" id={slug}>
+  <div class="card-header">
+    <span class="rank">#{rank}</span>
+    <div class="title-group">
+      <h2><a href={`/reviews/${slug}`}>{title}</a></h2>
+      {badge && <CategoryBadge badge={badge} />}
+    </div>
+    <div class="score-block">
+      <span class="score">{overallScore.toFixed(1)}</span>
+      <span class="score-denom">/10</span>
+    </div>
+  </div>
+
+  <div class="card-meta">
+    <span><strong>Price:</strong> {priceLabel}</span>
+    <span><strong>Throughput:</strong> ~{throughputPerHour.toLocaleString()}/hr</span>
+  </div>
+
+  <p class="differentiator">{differentiator}</p>
+
+  <div class="pros-cons">
+    <div class="col">
+      <h4 class="pros-label">Strengths</h4>
+      <ul>{pros.map(p => <li>{p}</li>)}</ul>
+    </div>
+    <div class="col">
+      <h4 class="cons-label">Weaknesses</h4>
+      <ul>{cons.map(c => <li>{c}</li>)}</ul>
+    </div>
+  </div>
+
+  <div class="card-footer">
+    <span class="best-for"><strong>Best for:</strong> {bestFor}</span>
+    <a href={`/reviews/${slug}`} class="read-more">Full review →</a>
+  </div>
+</div>
+
+<style>
+  .machine-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: box-shadow 0.15s;
+  }
+  .machine-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.07); }
+
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .rank {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #cbd5e1;
+    min-width: 2.25rem;
+    padding-top: 0.1rem;
+    line-height: 1;
+  }
+
+  .title-group { flex: 1; display: flex; flex-direction: column; gap: 0.35rem; }
+  .title-group h2 { font-size: 1.2rem; margin: 0; }
+  .title-group h2 a { color: #0f172a; }
+  .title-group h2 a:hover { color: #166534; text-decoration: none; }
+
+  .score-block { text-align: right; white-space: nowrap; }
+  .score { font-size: 2rem; font-weight: 700; color: #166534; font-variant-numeric: tabular-nums; }
+  .score-denom { font-size: 0.9rem; color: #94a3b8; }
+
+  .card-meta {
+    display: flex;
+    gap: 2rem;
+    font-size: 0.88rem;
+    color: #374151;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .differentiator {
+    font-size: 0.93rem;
+    color: #4b5563;
+    line-height: 1.55;
+    margin-bottom: 1rem;
+  }
+
+  .pros-cons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.88rem;
+  }
+
+  .pros-label, .cons-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+  }
+  .pros-label { color: #166534; }
+  .cons-label { color: #b91c1c; }
+
+  .col ul { list-style: none; padding: 0; }
+  .col li { padding: 0.15rem 0; color: #374151; }
+  .col:first-child li::before { content: '+ '; color: #166534; font-weight: 700; }
+  .col:last-child li::before  { content: '− '; color: #b91c1c; font-weight: 700; }
+
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 0.75rem;
+    font-size: 0.88rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .best-for { color: #374151; max-width: 75%; }
+  .read-more { font-weight: 600; color: #166534; white-space: nowrap; }
+</style>

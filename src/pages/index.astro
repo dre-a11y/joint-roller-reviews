@@ -1,0 +1,132 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ComparisonTable from '../components/ComparisonTable.astro';
+import MachineCard from '../components/MachineCard.astro';
+import FeaturedMachineCard from '../components/FeaturedMachineCard.astro';
+
+const allMachines = await getCollection('machines');
+const sorted = allMachines.sort((a, b) => (a.data.rank ?? 99) - (b.data.rank ?? 99));
+
+const tableData = sorted.map(m => ({
+  slug: m.id,
+  title: m.data.title,
+  priceLabel: m.data.priceLabel,
+  throughputPerHour: m.data.throughputPerHour,
+  badge: m.data.badge,
+  overallScore: m.data.overallScore,
+  rank: m.data.rank,
+}));
+---
+
+<BaseLayout
+  title="Best Automatic Rolling Machines"
+  description="Independent rankings of the 8 best commercial pre-roll machines for dispensary operators, scored on consistency, throughput, and total cost of ownership."
+>
+  <div class="hero">
+    <div class="container">
+      <h1>Best Automatic Pre-Roll Machines</h1>
+      <p class="lead">
+        Pre-roll automation is no longer optional for dispensaries competing on volume and consistency.
+        This guide ranks the 8 leading commercial machines on throughput, accuracy, cost of ownership,
+        and operational fit — scored independently, with no manufacturer relationships.
+        Whether you're running 5,000 joints a day or 50,000, there's a clear best choice for your operation.
+      </p>
+      <div class="hero-meta">
+        <span>8 machines evaluated</span>
+        <span aria-hidden="true">·</span>
+        <span>7 scoring criteria</span>
+        <span aria-hidden="true">·</span>
+        <span>Updated May 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    <section class="section">
+      <h2>Quick Comparison</h2>
+      <ComparisonTable machines={tableData} />
+    </section>
+
+    {sorted[0] && (
+      <FeaturedMachineCard
+        title={sorted[0].data.title}
+        slug={sorted[0].id}
+        manufacturer={sorted[0].data.manufacturer}
+        priceLabel={sorted[0].data.priceLabel}
+        throughputPerHour={sorted[0].data.throughputPerHour}
+        differentiator={sorted[0].data.differentiator}
+        overallScore={sorted[0].data.overallScore}
+        badge={sorted[0].data.badge}
+        pros={sorted[0].data.pros}
+        image={sorted[0].data.image}
+        tagline={sorted[0].data.tagline}
+      />
+    )}
+
+    <section class="section">
+      <h2>Full Rankings</h2>
+      {sorted.map(m => (
+        <MachineCard
+          rank={m.data.rank ?? 0}
+          title={m.data.title}
+          slug={m.id}
+          priceLabel={m.data.priceLabel}
+          throughputPerHour={m.data.throughputPerHour}
+          differentiator={m.data.differentiator}
+          overallScore={m.data.overallScore ?? 0}
+          badge={m.data.badge}
+          pros={m.data.pros}
+          cons={m.data.cons}
+          bestFor={m.data.bestFor}
+        />
+      ))}
+    </section>
+
+    <section class="buyers-cta">
+      <h2>Not sure which tier fits your operation?</h2>
+      <p>The buyer's guide walks through the decision by daily volume, format requirements, and total cost of ownership.</p>
+      <a href="/how-to-choose-a-pre-roll-machine">Read the Buyer's Guide →</a>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .hero {
+    background: #0f172a;
+    padding: 3.5rem 0 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .hero h1 { color: #fff; margin-bottom: 1rem; }
+
+  .lead {
+    font-size: 1.03rem;
+    line-height: 1.7;
+    color: #94a3b8;
+    max-width: 680px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 0.75rem;
+    font-size: 0.83rem;
+    color: #475569;
+  }
+
+  .section { margin-bottom: 3rem; }
+  .section h2 { margin-bottom: 1.25rem; }
+
+  .buyers-cta {
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .buyers-cta h2 { margin-bottom: 0.5rem; }
+  .buyers-cta p { color: #6b7280; margin-bottom: 1rem; }
+  .buyers-cta a { font-weight: 600; }
+</style>

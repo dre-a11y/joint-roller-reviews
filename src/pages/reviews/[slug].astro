@@ -1,0 +1,178 @@
+---
+import { getCollection, render } from 'astro:content';
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import CategoryBadge from '../../components/CategoryBadge.astro';
+import ScoreBreakdown from '../../components/ScoreBreakdown.astro';
+
+export async function getStaticPaths() {
+  const machines = await getCollection('machines');
+  return machines.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const m = entry.data;
+---
+
+<ReviewLayout title={m.title} description={m.differentiator}>
+  <nav class="breadcrumb">
+    <a href="/">← All Rankings</a>
+  </nav>
+
+  <div class="review-header">
+    <div class="title-block">
+      {m.rank && <span class="rank-label">#{m.rank} Overall</span>}
+      <h1>{m.title}</h1>
+      <p class="manufacturer">by {m.manufacturer}</p>
+    </div>
+    {m.badge && <CategoryBadge badge={m.badge} />}
+  </div>
+
+  <table class="specs-table">
+    <tbody>
+      <tr><td>Price</td><td>{m.priceLabel}</td></tr>
+      <tr><td>Throughput</td><td>~{m.throughputPerHour.toLocaleString()}/hr (rated)</td></tr>
+      <tr><td>Formats</td><td>{m.formats.join(', ')}</td></tr>
+      <tr><td>Key Differentiator</td><td>{m.differentiator}</td></tr>
+    </tbody>
+  </table>
+
+  <div class="pros-cons">
+    <div>
+      <h3 class="pros-head">Strengths</h3>
+      <ul>{m.pros.map(p => <li>{p}</li>)}</ul>
+    </div>
+    <div>
+      <h3 class="cons-head">Weaknesses</h3>
+      <ul>{m.cons.map(c => <li>{c}</li>)}</ul>
+    </div>
+  </div>
+
+  <div class="review-body">
+    <Content />
+  </div>
+
+  {m.scores && m.overallScore && (
+    <ScoreBreakdown scores={m.scores} overallScore={m.overallScore} />
+  )}
+
+  <div class="best-fit">
+    <h3>Best-Fit Profile</h3>
+    <p>{m.bestFor}</p>
+  </div>
+
+  {m.nearestCompetitor && (
+    <div class="competitor-callout">
+      <h3>Nearest Competitor</h3>
+      <p>
+        Compare the {m.title} against the{' '}
+        <a href={`/reviews/${m.nearestCompetitor}`}>
+          {m.nearestCompetitor.replace(/-/g, ' ')}
+        </a>.
+      </p>
+    </div>
+  )}
+
+  <div class="back-link">
+    <a href="/">← Back to Full Rankings</a>
+  </div>
+</ReviewLayout>
+
+<style>
+  .breadcrumb { font-size: 0.88rem; margin-bottom: 1.5rem; }
+
+  .review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.75rem;
+  }
+
+  .rank-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #6b7280;
+    margin-bottom: 0.25rem;
+  }
+
+  .review-header h1 { margin-bottom: 0.25rem; }
+  .manufacturer { color: #6b7280; font-size: 0.93rem; margin: 0; }
+
+  .specs-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+  }
+
+  .specs-table td { padding: 0.75rem 1rem; border-bottom: 1px solid #f1f5f9; vertical-align: top; }
+  .specs-table tr:last-child td { border-bottom: none; }
+  .specs-table td:first-child {
+    font-weight: 600;
+    color: #6b7280;
+    background: #f8fafc;
+    width: 180px;
+    white-space: nowrap;
+  }
+
+  .pros-cons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .pros-head, .cons-head {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+  }
+  .pros-head { color: #166534; }
+  .cons-head { color: #b91c1c; }
+
+  .pros-cons ul { list-style: none; padding: 0; font-size: 0.9rem; }
+  .pros-cons li { padding: 0.3rem 0; border-bottom: 1px solid #f8fafc; color: #374151; }
+  .pros-cons div:first-child li::before { content: '+ '; color: #166534; font-weight: 700; }
+  .pros-cons div:last-child  li::before { content: '− '; color: #b91c1c; font-weight: 700; }
+
+  .review-body { margin-bottom: 2rem; line-height: 1.75; color: #374151; }
+  .review-body :global(h2) { margin: 2rem 0 0.75rem; color: #0f172a; font-size: 1.2rem; }
+  .review-body :global(h3) { margin: 1.5rem 0 0.5rem; color: #0f172a; }
+  .review-body :global(p)  { margin-bottom: 1rem; }
+
+  .best-fit {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+  .best-fit h3 { font-size: 0.83rem; text-transform: uppercase; letter-spacing: 0.06em; color: #166534; margin-bottom: 0.4rem; }
+  .best-fit p  { margin: 0; font-size: 0.93rem; color: #374151; }
+
+  .competitor-callout {
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.25rem;
+    font-size: 0.93rem;
+  }
+  .competitor-callout h3 { font-size: 0.83rem; text-transform: uppercase; letter-spacing: 0.06em; color: #6b7280; margin-bottom: 0.4rem; }
+  .competitor-callout p  { margin: 0; }
+
+  .back-link { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #e5e7eb; font-size: 0.9rem; }
+</style>
