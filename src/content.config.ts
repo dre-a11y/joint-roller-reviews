@@ -13,8 +13,10 @@ const machines = defineCollection({
     differentiator: z.string(),
     formats: z.array(z.enum(['cones', 'straight', 'blunts', 'infused'])),
     badge: z.enum([
+      'Best Overall',
       'Best for High Volume',
       'Best for Quality/Consistency',
+      'Best for Speed at Scale',
       'Best Value',
       'Most Format-Flexible',
       'Best Entry-Level',

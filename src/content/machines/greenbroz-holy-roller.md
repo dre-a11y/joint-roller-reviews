@@ -5,7 +5,7 @@ priceLabel: "Custom"
 throughputPerHour: 3000
 differentiator: "Highest documented density precision of any machine in this guide — ±0.0012 density variance — combined with a 3,000+/hr throughput that makes precision production viable at scale."
 formats: ["cones", "straight"]
-badge: "Best for Quality/Consistency"
+badge: "Best for Speed at Scale"
 scores:
   throughput: 9
   consistency: 9

@@ -8,7 +8,7 @@ image: "/images/machines/rollpros-blackbird.jpg"
 tagline: "The only machine that actually rolls j*ints. Every competitor fills cones. This distinction matters."
 differentiator: "The only commercial machine that rolls j*ints using radial compaction rather than filling pre-formed cones — produces measurably better airflow consistency and burn quality."
 formats: ["straight"]
-badge: "Best for Quality/Consistency"
+badge: "Best Overall"
 scores:
   throughput: 7
   consistency: 10
