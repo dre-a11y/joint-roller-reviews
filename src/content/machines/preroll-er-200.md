@@ -5,7 +5,7 @@ priceLabel: "$275,000–$325,000"
 priceMin: 275000
 priceMax: 325000
 throughputPerHour: 1300
-differentiator: "Best dosing accuracy in the category at ±0.01g — the only machine explicitly designed to meet pharmaceutical-grade compliance standards for regulated cannabis markets."
+differentiator: "Best dosing accuracy in the category at ±0.01g — the only machine explicitly designed to meet pharmaceutical-grade compliance standards for regulated c*nn*bis markets."
 formats: ["cones", "straight"]
 scores:
   throughput: 7
@@ -38,7 +38,7 @@ The machine fills cones and straight rolls using a precision dosing system with 
 
 ## Who Makes It
 
-PreRoll-Er is a Canadian manufacturer with a strong presence in the licensed Canadian cannabis market, where dosing compliance requirements are among the most stringent globally. Their machines reflect those requirements.
+PreRoll-Er is a Canadian manufacturer with a strong presence in the licensed Canadian c*nn*bis market, where dosing compliance requirements are among the most stringent globally. Their machines reflect those requirements.
 
 ## Operator Impressions
 

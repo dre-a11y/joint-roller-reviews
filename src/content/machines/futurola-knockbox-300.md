@@ -36,11 +36,11 @@ Throughput peaks at approximately 300 cones per 90-second cycle under optimal co
 
 ## Who Makes It
 
-Futurola is a Dutch company and one of the most recognized cone brands in the cannabis industry. The Knockbox line extends their brand into the automation space, and for operators already buying Futurola cones, the integration is seamless.
+Futurola is a Dutch company and one of the most recognized cone brands in the c*nn*bis industry. The Knockbox line extends their brand into the automation space, and for operators already buying Futurola cones, the integration is seamless.
 
 ## Operator Impressions
 
-Consistently praised for ease of use and low training requirements. The most common critique: operators who scale past 5,000 joints per day quickly find the Knockbox constraining and upgrade to a purpose-built commercial machine.
+Consistently praised for ease of use and low training requirements. The most common critique: operators who scale past 5,000 j*ints per day quickly find the Knockbox constraining and upgrade to a purpose-built commercial machine.
 
 ## Total Cost of Ownership
 

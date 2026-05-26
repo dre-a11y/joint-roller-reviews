@@ -5,7 +5,7 @@ priceLabel: "$59,950"
 priceMin: 59950
 priceMax: 59950
 throughputPerHour: 2500
-differentiator: "Best throughput-to-price ratio at scale — 40,000+ joints per day at roughly one-quarter the cost of premium competitors."
+differentiator: "Best throughput-to-price ratio at scale — 40,000+ j*ints per day at roughly one-quarter the cost of premium competitors."
 formats: ["cones"]
 badge: "Best for High Volume"
 scores:
@@ -33,7 +33,7 @@ nearestCompetitor: "rollpros-blackbird"
 
 ## Overview
 
-The STM Canna RocketBox Pro is the throughput benchmark for the sub-$100K category. At 40,000+ joints per day from a $59,950 machine, it delivers a cost-per-unit that no competitor at this price point can match. For large dispensaries running pre-rolls as a high-volume commodity product, this is the default choice.
+The STM Canna RocketBox Pro is the throughput benchmark for the sub-$100K category. At 40,000+ j*ints per day from a $59,950 machine, it delivers a cost-per-unit that no competitor at this price point can match. For large dispensaries running pre-rolls as a high-volume commodity product, this is the default choice.
 
 The machine fills pre-formed cones using a vibrational filling method combined with a tamping system. Consistency is good — not exceptional. Weight variance is within acceptable commercial tolerances, but operators sourcing premium flower will notice the difference versus a rolling machine.
 

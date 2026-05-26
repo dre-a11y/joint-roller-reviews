@@ -5,7 +5,7 @@ priceLabel: "$3,500"
 priceMin: 3500
 priceMax: 3500
 throughputPerHour: 625
-differentiator: "The lowest barrier to pre-roll automation in the commercial category — $3,500 gets a dispensary from hand-rolling to 10,000 joints per day."
+differentiator: "The lowest barrier to pre-roll automation in the commercial category — $3,500 gets a dispensary from hand-rolling to 10,000 j*ints per day."
 formats: ["cones"]
 badge: "Best Entry-Level"
 scores:
@@ -27,15 +27,15 @@ cons:
   - "Throughput ceiling limits viability for operations above 10,000/day"
   - "Consistency and accuracy below commercial-grade machines"
   - "Not a long-term solution for a scaling operation"
-bestFor: "Dispensaries just beginning to automate pre-roll production, or small operations with daily volumes under 5,000 joints where a full commercial machine investment isn't justified yet."
+bestFor: "Dispensaries just beginning to automate pre-roll production, or small operations with daily volumes under 5,000 j*ints where a full commercial machine investment isn't justified yet."
 nearestCompetitor: "futurola-knockbox-300"
 ---
 
 ## Overview
 
-The STM Canna RollCraft MRB ranks last in this guide, but that's in the context of commercial pre-roll machines running 20,000+ joints per day. For its actual target operator — a dispensary making the jump from manual production — it's the most efficient $3,500 you can spend.
+The STM Canna RollCraft MRB ranks last in this guide, but that's in the context of commercial pre-roll machines running 20,000+ j*ints per day. For its actual target operator — a dispensary making the jump from manual production — it's the most efficient $3,500 you can spend.
 
-At 10,000 joints per day, it doesn't compete with the machines above it. What it does is eliminate hand-rolling labor for small and early-stage operations at a price point that doesn't require capital planning or financing.
+At 10,000 j*ints per day, it doesn't compete with the machines above it. What it does is eliminate hand-rolling labor for small and early-stage operations at a price point that doesn't require capital planning or financing.
 
 ## Who Makes It
 

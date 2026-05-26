@@ -5,8 +5,8 @@ priceLabel: "$225,000+"
 priceMin: 225000
 throughputPerHour: 900
 image: "/images/machines/rollpros-blackbird.jpg"
-tagline: "The only machine that actually rolls joints. Every competitor fills cones. This distinction matters."
-differentiator: "The only commercial machine that rolls joints using radial compaction rather than filling pre-formed cones — produces measurably better airflow consistency and burn quality."
+tagline: "The only machine that actually rolls j*ints. Every competitor fills cones. This distinction matters."
+differentiator: "The only commercial machine that rolls j*ints using radial compaction rather than filling pre-formed cones — produces measurably better airflow consistency and burn quality."
 formats: ["straight"]
 badge: "Best for Quality/Consistency"
 scores:
@@ -34,9 +34,9 @@ nearestCompetitor: "greenbroz-holy-roller"
 
 ## Overview
 
-The RollPros Blackbird is the only machine in this category that actually rolls a joint. Every competitor fills a pre-formed cone. The distinction matters: radial compaction produces a more uniform density profile from tip to base, which directly affects draw resistance and burn evenness — the two things most likely to make or break a customer's experience with your brand.
+The RollPros Blackbird is the only machine in this category that actually rolls a j*int. Every competitor fills a pre-formed cone. The distinction matters: radial compaction produces a more uniform density profile from tip to base, which directly affects draw resistance and burn evenness — the two things most likely to make or break a customer's experience with your brand.
 
-RollPros calls their method TruRoll™. The mechanics involve rolling loose material between two surfaces under precise pressure, replicating what a skilled hand-roller does. The output is a straight joint with consistent density throughout, not a cone packed from the open end.
+RollPros calls their method TruRoll™. The mechanics involve rolling loose material between two surfaces under precise pressure, replicating what a skilled hand-roller does. The output is a straight j*int with consistent density throughout, not a cone packed from the open end.
 
 ## Who Makes It
 
