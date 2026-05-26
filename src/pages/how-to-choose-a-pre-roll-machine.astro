@@ -1,6 +1,158 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
-<BaseLayout title="How to Choose a Pre-Roll Machine">
-  <!-- Buyer's Guide -->
+<BaseLayout title="How to Choose a Pre-Roll Machine" description="Guide to selecting the right automatic pre-roll machine for your dispensary operation.">
+  <div class="hero">
+    <div class="container">
+      <h1>How to Choose a Pre-Roll Machine</h1>
+      <p class="lead">Selecting the right automation equipment depends on your volume, format requirements, and cost constraints. This guide walks you through the decision framework.</p>
+    </div>
+  </div>
+
+  <main class="container">
+    <section class="guide-section">
+      <h2>1. What Volume Do You Need?</h2>
+      <p>Start with daily j*int output. Different machines serve different scales:</p>
+      <ul>
+        <li><strong>Under 5,000 j*ints/day:</strong> Entry-level machines ($3,500–$10K). Single operator, semi-automated.</li>
+        <li><strong>5,000–20,000 j*ints/day:</strong> Mid-range machines ($15K–$60K). Dedicated operator or small team.</li>
+        <li><strong>20,000+ j*ints/day:</strong> Commercial-grade machines ($60K+). Multi-shift operation or high-volume brand.</li>
+      </ul>
+    </section>
+
+    <section class="guide-section">
+      <h2>2. Format Decisions</h2>
+      <p>Not all machines handle all formats. Decide what you need to produce:</p>
+      <ul>
+        <li><strong>Straight rolls:</strong> Hand-rolled quality. Fewer machines support this. Premium positioning.</li>
+        <li><strong>Pre-formed cones:</strong> Most common. Highest machine availability. Fastest changeover.</li>
+        <li><strong>Blunts:</strong> Growing demand. Fewer machines. Check specific compatibility.</li>
+        <li><strong>Infused formats:</strong> Specialty. Very limited machine support.</li>
+      </ul>
+      <p><strong>Key decision:</strong> Do you need format flexibility on a single machine, or are you willing to run separate equipment for different formats?</p>
+    </section>
+
+    <section class="guide-section">
+      <h2>3. Total Cost of Ownership</h2>
+      <p>Upfront price is only part of the equation. Consider:</p>
+      <ul>
+        <li><strong>Upfront cost:</strong> Machine purchase price.</li>
+        <li><strong>Consumables:</strong> Papers, cones, tips. Per-j*int cost varies by machine and material quality.</li>
+        <li><strong>Labor:</strong> How many operators required? How much training?</li>
+        <li><strong>Maintenance:</strong> Cleaning time, parts availability, frequency of repairs.</li>
+        <li><strong>Downtime:</strong> What's your cost if the machine breaks during peak production?</li>
+      </ul>
+      <p>Calculate TCO over 3 years. A cheaper machine with expensive consumables may cost more than a pricier machine with efficient material usage.</p>
+    </section>
+
+    <section class="guide-section">
+      <h2>4. Material Preparation</h2>
+      <p>All machines require properly prepared flower:</p>
+      <ul>
+        <li><strong>Grind size:</strong> Must be consistent. Too coarse = jams. Too fine = density issues.</li>
+        <li><strong>Moisture content:</strong> 8–12% ideal. Too dry = brittle. Too moist = compaction problems.</li>
+        <li><strong>Stem removal:</strong> Most machines require pre-processing to remove stems and large particles.</li>
+      </ul>
+      <p>Budget for a quality grinder and moisture meter. Poor material prep is the #1 cause of machine downtime.</p>
+    </section>
+
+    <section class="guide-section">
+      <h2>5. Compliance & Dosing Accuracy</h2>
+      <p>If your market requires compliance-grade dosing (Canada, regulated US markets), this changes your machine selection:</p>
+      <ul>
+        <li><strong>Dosing tolerance:</strong> Some machines offer ±0.01g accuracy. Others only ±0.5g.</li>
+        <li><strong>Documentation:</strong> Do you need weight logs for every batch? Some machines track this; others don't.</li>
+        <li><strong>Regulatory fit:</strong> Check with your local regulator on acceptable automation methods.</li>
+      </ul>
+    </section>
+
+    <section class="guide-section">
+      <h2>6. Staffing & Training</h2>
+      <p>Operator skill varies by machine:</p>
+      <ul>
+        <li><strong>Easy to operate:</strong> Minimal training. Single operator can manage. Best for small teams.</li>
+        <li><strong>Complex:</strong> 2–4 weeks of training required. Needs dedicated staff. Better for larger operations.</li>
+      </ul>
+      <p>Consider turnover. A machine that's easy to operate costs less in training and is more resilient to staff changes.</p>
+    </section>
+
+    <section class="guide-section">
+      <h2>7. Support & Warranty</h2>
+      <p>When your machine breaks, how fast can you get it back online?</p>
+      <ul>
+        <li><strong>Manufacturer support:</strong> On-site training? Remote troubleshooting? Phone support available?</li>
+        <li><strong>Parts availability:</strong> How long to get replacement parts?</li>
+        <li><strong>Warranty terms:</strong> 1 year? 2 years? What's covered?</li>
+        <li><strong>Service network:</strong> Is there a local technician, or do you ship the machine?</li>
+      </ul>
+      <p>A cheap machine with poor support can be more expensive than a pricier machine with responsive manufacturers.</p>
+    </section>
+
+    <section class="cta">
+      <h2>Ready to compare machines?</h2>
+      <p>Use our <a href="/">full rankings and comparison</a> to see how different models score on these dimensions.</p>
+    </section>
+  </main>
 </BaseLayout>
+
+<style>
+  .hero {
+    background: #0f172a;
+    color: #fff;
+    padding: 3.5rem 0 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .hero h1 {
+    color: #fff;
+    margin-bottom: 1rem;
+  }
+
+  .lead {
+    font-size: 1.03rem;
+    line-height: 1.7;
+    color: #94a3b8;
+    max-width: 680px;
+    margin-bottom: 0;
+  }
+
+  .guide-section {
+    margin-bottom: 3rem;
+  }
+
+  .guide-section h2 {
+    margin-bottom: 1rem;
+  }
+
+  .guide-section ul {
+    list-style: disc;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .guide-section li {
+    margin-bottom: 0.5rem;
+    color: #374151;
+  }
+
+  .cta {
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-top: 3rem;
+  }
+
+  .cta h2 {
+    margin-bottom: 0.5rem;
+  }
+
+  .cta p {
+    color: #6b7280;
+    margin-bottom: 0;
+  }
+
+  .cta a {
+    font-weight: 600;
+  }
+</style>

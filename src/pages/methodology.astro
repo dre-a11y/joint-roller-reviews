@@ -1,6 +1,230 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
-<BaseLayout title="Methodology">
-  <!-- Methodology & scoring rubric -->
+<BaseLayout title="Methodology" description="How Pre-Roller Reviews evaluates and scores pre-roll machines.">
+  <div class="hero">
+    <div class="container">
+      <h1>Methodology & Scoring</h1>
+      <p class="lead">Our rankings are based on independent research and a weighted scoring rubric. Learn how we evaluate machines.</p>
+    </div>
+  </div>
+
+  <main class="container">
+    <section class="methodology-section">
+      <h2>How Machines Are Evaluated</h2>
+      <p>Each machine is scored independently across 7 criteria using official specifications, industry publications, operator accounts, and third-party reviews. We do not conduct hands-on testing.</p>
+      <p>No commercial relationships exist with any manufacturer. Scores and rankings are earned through data, not influenced by sponsorship or marketing relationships.</p>
+    </section>
+
+    <section class="methodology-section">
+      <h2>Scoring Rubric</h2>
+      <p>Each criterion is scored 0–10, then weighted to produce an overall score:</p>
+
+      <table class="rubric-table">
+        <thead>
+          <tr>
+            <th>Criterion</th>
+            <th>Weight</th>
+            <th>What We Measure</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Consistency & Accuracy</td>
+            <td>25%</td>
+            <td>Weight variance, density uniformity, burn quality, canoeing resistance</td>
+          </tr>
+          <tr>
+            <td>Throughput</td>
+            <td>20%</td>
+            <td>J*ints per hour at rated capacity</td>
+          </tr>
+          <tr>
+            <td>Total Cost of Ownership</td>
+            <td>20%</td>
+            <td>Upfront cost + maintenance + material costs over 3 years</td>
+          </tr>
+          <tr>
+            <td>Format Flexibility</td>
+            <td>10%</td>
+            <td>Support for cones, straight rolls, blunts, infused formats</td>
+          </tr>
+          <tr>
+            <td>Ease of Operation</td>
+            <td>10%</td>
+            <td>Setup time, training required, day-to-day operation difficulty</td>
+          </tr>
+          <tr>
+            <td>Uptime & Maintenance</td>
+            <td>10%</td>
+            <td>Cleaning time, parts availability, reliability reports</td>
+          </tr>
+          <tr>
+            <td>Support & Warranty</td>
+            <td>5%</td>
+            <td>Manufacturer responsiveness, warranty terms, support availability</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Why This Weighting?</h3>
+      <p>Consistency and accuracy carry the highest weight because they directly impact brand reputation and customer experience. A machine that produces inconsistent j*ints damages margins through returns and complaints, even if it's cheaper upfront.</p>
+      <p>Throughput and TCO are equally weighted because different operators prioritize differently: high-volume operations care about per-unit cost; premium brands care about quality. Both matter.</p>
+      <p>Support is weighted lower because it's easier to evaluate and communicate, but still important for operations with limited technical staff.</p>
+    </section>
+
+    <section class="methodology-section">
+      <h2>Data Sources</h2>
+      <p>We use a triangulated approach:</p>
+      <ul>
+        <li><strong>Manufacturer specifications:</strong> Official datasheets and product pages.</li>
+        <li><strong>Industry publications:</strong> MJBizDaily, mg Magazine, Cannabis & Tech Today for third-party coverage.</li>
+        <li><strong>Community forums:</strong> Future4200, Reddit, THCFarmer for operator experiences and pain points.</li>
+        <li><strong>Operator accounts:</strong> Direct reports from dispensary owners and production managers.</li>
+      </ul>
+      <p>When sources conflict, we flag it. When claims can't be independently verified, we note that in the review.</p>
+    </section>
+
+    <section class="methodology-section">
+      <h2>Category Badges</h2>
+      <p>Machines also receive category badges based on their distinct strengths, independent of overall ranking:</p>
+      <ul>
+        <li><strong>Best for High Volume:</strong> Highest throughput per dollar</li>
+        <li><strong>Best for Quality/Consistency:</strong> Lowest variance in j*int quality</li>
+        <li><strong>Best Value:</strong> Best price-to-feature ratio</li>
+        <li><strong>Most Format-Flexible:</strong> Widest range of supported formats</li>
+        <li><strong>Best Entry-Level:</strong> Lowest barrier to automation</li>
+        <li><strong>Best for Craft/Premium Brands:</strong> Highest quality output</li>
+      </ul>
+    </section>
+
+    <section class="methodology-section">
+      <h2>Disclosure & Conflicts of Interest</h2>
+      <p><strong>Commercial relationships:</strong> Pre-Roller Reviews has no commercial relationships with any manufacturer. We are not paid for reviews, sponsored content, or product placement. Rankings are not influenced by advertising or affiliate relationships.</p>
+      <p><strong>Operator feedback:</strong> When we cite operator accounts, we source from public forums and published interviews, not paid testimonials.</p>
+      <p><strong>Updates:</strong> We review and update rankings monthly as new machines launch, prices change, or new operator data emerges.</p>
+    </section>
+
+    <section class="methodology-section">
+      <h2>Limitations</h2>
+      <p>This guide does not:</p>
+      <ul>
+        <li>Conduct hands-on testing or lab analysis</li>
+        <li>Recommend specific machines for specific operations (too many variables)</li>
+        <li>Cover illegal markets or unlicensed operations</li>
+        <li>Review consumer pre-roll devices or hand-rolling aids</li>
+      </ul>
+      <p>We evaluate commercial-grade machines sold into licensed or regulated markets only.</p>
+    </section>
+
+    <section class="methodology-section">
+      <h2>Last Updated</h2>
+      <p><strong>May 2026.</strong> Rankings are updated monthly. Subscribe to our updates to stay current as new machines launch and scores change.</p>
+    </section>
+
+    <section class="cta">
+      <h2>Questions about our methodology?</h2>
+      <p>This guide reflects our approach. If you spot an error or have feedback on our scoring, email us at <a href="mailto:editorial@pre-roller-reviews.com">editorial@pre-roller-reviews.com</a>.</p>
+    </section>
+  </main>
 </BaseLayout>
+
+<style>
+  .hero {
+    background: #0f172a;
+    color: #fff;
+    padding: 3.5rem 0 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .hero h1 {
+    color: #fff;
+    margin-bottom: 1rem;
+  }
+
+  .lead {
+    font-size: 1.03rem;
+    line-height: 1.7;
+    color: #94a3b8;
+    max-width: 680px;
+    margin-bottom: 0;
+  }
+
+  .methodology-section {
+    margin-bottom: 3rem;
+  }
+
+  .methodology-section h2 {
+    margin-bottom: 1rem;
+  }
+
+  .methodology-section h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .methodology-section ul {
+    list-style: disc;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .methodology-section li {
+    margin-bottom: 0.5rem;
+    color: #374151;
+  }
+
+  .rubric-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .rubric-table thead {
+    background: #f8fafc;
+    border-bottom: 2px solid #e5e7eb;
+  }
+
+  .rubric-table th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    font-size: 0.88rem;
+  }
+
+  .rubric-table td {
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid #f1f5f9;
+    color: #374151;
+    font-size: 0.88rem;
+  }
+
+  .rubric-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .cta {
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-top: 3rem;
+  }
+
+  .cta h2 {
+    margin-bottom: 0.5rem;
+  }
+
+  .cta p {
+    color: #6b7280;
+    margin-bottom: 0;
+  }
+
+  .cta a {
+    font-weight: 600;
+  }
+</style>
