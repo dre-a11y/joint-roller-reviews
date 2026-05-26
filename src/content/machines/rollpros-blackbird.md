@@ -17,7 +17,7 @@ scores:
   easeOfOperation: 7
   uptimeAndMaintenance: 8
   supportAndWarranty: 9
-overallScore: 8.2
+overallScore: 9.2
 rank: 1
 pros:
   - "TruRoll™ radial compaction — the only true rolling machine on the market"
